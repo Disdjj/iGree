@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'record_screen.dart'; // 稍后会创建这个文件
+import 'record_screen.dart';
+import 'history_screen.dart'; // 稍后会创建这个文件
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,7 +25,6 @@ class HomeScreen extends StatelessWidget {
               icon: const Icon(Icons.add_circle_outline),
               label: const Text('创建新的同意记录'),
               onPressed: () {
-                // TODO: 导航到创建记录页面
                  Navigator.push(
                    context,
                    MaterialPageRoute(builder: (context) => const RecordScreen()),
@@ -38,7 +38,11 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20), // 增加间距
             TextButton(
               onPressed: () {
-                // TODO: 导航到查看历史记录页面 (如果需要)
+                // 导航到查看历史记录页面
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HistoryScreen()),
+                );
               },
               child: const Text('查看历史记录'),
             )
