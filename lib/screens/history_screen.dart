@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'record_detail_screen.dart'; // 导入 record_detail_screen
 
 // 用于存储单个记录信息的简单类
 class RecordInfo {
@@ -104,13 +105,14 @@ class _HistoryScreenState extends State<HistoryScreen> {
     }
   }
 
-  // TODO: 添加查看记录详情的功能
+  // 修改这里以导航到详情页
   void _viewRecordDetail(RecordInfo record) {
-     // 在这里可以导航到新的详情页面，传入 record.directoryPath
-     print("查看记录详情: ${record.directoryPath}");
-     // 例如: Navigator.push(context, MaterialPageRoute(builder: (context) => RecordDetailScreen(recordPath: record.directoryPath)));
-     ScaffoldMessenger.of(context).showSnackBar(
-       SnackBar(content: Text('将在后续实现查看 ${record.recordTime} 的详情')),
+     print("导航到记录详情: ${record.directoryPath}");
+     Navigator.push(
+       context,
+       MaterialPageRoute(
+         builder: (context) => RecordDetailScreen(recordPath: record.directoryPath), // 导航到详情页并传递路径
+       ),
      );
   }
 
